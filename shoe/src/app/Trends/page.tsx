@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ManShoesPage() {
   const [columns, setColumns] = useState(4);
@@ -29,20 +30,8 @@ export default function ManShoesPage() {
     { id: 18, name: "Trail Blazer", price: "$132.00", image: "/Images/p3.png" },
     { id: 19, name: "Running Boost", price: "$98.00", image: "/Images/p4.png" },
     { id: 20, name: "Urban Classic", price: "$122.49", image: "/Images/p5.png" },
-    { id: 21, name: "Urban Classic", price: "$122.49", image: "/Images/p6.jpg" },
-    { id: 22, name: "Urban Classic", price: "$122.49", image: "/Images/p7.jpg" },
-    { id: 23, name: "Urban Classic", price: "$122.49", image: "/Images/p8.jpg" },
-    { id: 24, name: "Urban Classic", price: "$122.49", image: "/Images/p9.jpg" },
-    { id: 25, name: "Urban Classic", price: "$122.49", image: "/Images/p10.jpg" },
-    { id: 26, name: "Urban Classic", price: "$122.49", image: "/Images/w2.jpg" },
-    { id: 27, name: "Urban Classic", price: "$122.49", image: "/Images/m1.jpg" },
-    { id: 28, name: "Urban Classic", price: "$122.49", image: "/Images/w18.jpg" },
-    { id: 29, name: "Urban Classic", price: "$122.49", image: "/Images/m3.jpg" },
-    { id: 30, name: "Urban Classic", price: "$122.49", image: "/Images/m11.jpg" },
-
   ];
 
-  // 🔹 Handle responsive columns
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -58,43 +47,49 @@ export default function ManShoesPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 🔹 Mobile alignments (only 1 or 2)
   const mobileAlignments = [1, 2];
+
+  const calcDiscount = (price: string) => {
+    const num = parseFloat(price.replace("$", ""));
+    const discounted = num * 0.8;
+    return `$${discounted.toFixed(2)}`;
+  };
 
   return (
     <div className="w-full min-h-screen bg-gray-50">
-      {/* Hero Section */}
-     <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-  {/* Background Image */}
-  <Image
-    src="/images/trend.jpg"
-    alt="Woman Collection"
-    fill
-    className="object-cover"
-    priority
-  />
+      {/* 🔸 Hero Section */}
+      <section className="relative w-full min-h-[70vh] sm:min-h-[60vh] md:h-[70vh] overflow-hidden flex items-center">
+        <Image
+          src="/images/trend1.jpg"
+          alt="Trend Collection"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 w-full flex flex-col md:flex-row items-center justify-between text-center md:text-left px-4 sm:px-8 md:px-16 py-10">
+          <div className="text-white space-y-4 sm:space-y-6 mb-6 md:mb-0">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight">
+              Sale Collection
+            </h1>
+            <button
+              onClick={() =>
+                document
+                  .getElementById("products")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-white text-black px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-gray-200 transition text-sm sm:text-base"
+            >
+              Shop Now
+            </button>
+          </div>
+          <div className="text-white text-4xl sm:text-5xl md:text-7xl font-extrabold">
+            20% OFF
+          </div>
+        </div>
+      </section>
 
-  {/* Overlay (optional dark layer for contrast) */}
-  <div className="absolute inset-0 bg-black/40" />
-
-  {/* Text + Button Content */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">
-      Woman&apos;s Collection
-    </h1>
-    <button
-      onClick={() =>
-        document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })
-      }
-      className="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition text-sm sm:text-base"
-    >
-      Shop Now
-    </button>
-  </div>
-</section>
-
-
-      {/* Layout Controls */}
+      {/* 🔸 Layout Controls */}
       <div className="flex justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10 flex-wrap px-4">
         {(isMobile ? mobileAlignments : alignments).map((col, index) => (
           <button
@@ -104,16 +99,22 @@ export default function ManShoesPage() {
               columns === col ? "border-black bg-gray-200" : "border-gray-300"
             }`}
           >
-            <div className="flex gap-[2px]" style={{ width: "60px", justifyContent: "center" }}>
+            <div
+              className="flex gap-[2px]"
+              style={{ width: "60px", justifyContent: "center" }}
+            >
               {Array.from({ length: col }).map((_, i) => (
-                <div key={i} className="bg-gray-400 w-[8px] h-[20px] rounded-sm"></div>
+                <div
+                  key={i}
+                  className="bg-gray-400 w-[8px] h-[20px] rounded-sm"
+                ></div>
               ))}
             </div>
           </button>
         ))}
       </div>
 
-      {/* Cards Grid */}
+      {/* 🔸 Product Cards Grid */}
       <div className="flex justify-center mt-8 sm:mt-10 px-4 sm:px-6 md:px-10">
         <div
           id="products"
@@ -122,33 +123,47 @@ export default function ManShoesPage() {
             gridTemplateColumns: `repeat(${columns}, minmax(220px, 1fr))`,
           }}
         >
-          {shoes.map((shoe) => (
-            <div
-              key={shoe.id}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
-            >
-              <div
-                className={`relative w-full ${
-                  columns === 2 || columns === 1 ? "h-[350px]" : "h-[250px]"
-                } sm:h-[300px] md:h-[350px] lg:h-[400px]`}
-              >
-                <Image
-                  src={shoe.image}
-                  alt={shoe.name}
-                  fill
-                  className="object-contain bg-gray-100"
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
-                  {shoe.name}
-                </h2>
-                <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
-                  {shoe.price}
-                </p>
-              </div>
-            </div>
-          ))}
+          {shoes.map((shoe) => {
+            const discountedPrice = calcDiscount(shoe.price);
+            return (
+              // ✅ Wrapped each card in Link for dynamic navigation
+              <Link key={shoe.id} href={`/Trends/${shoe.id}`}>
+                <div className="bg-white shadow-md rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+                  <div
+                    className={`relative w-full ${
+                      columns === 2 || columns === 1 ? "h-[350px]" : "h-[250px]"
+                    } sm:h-[300px] md:h-[350px] lg:h-[400px] bg-gray-100 rounded-t-lg overflow-hidden`}
+                  >
+                    <div className="absolute top-2 left-2 bg-red-600 text-white text-xs sm:text-sm font-semibold px-2 py-1 rounded-md z-10">
+                      20% OFF
+                    </div>
+
+                    <Image
+                      src={shoe.image}
+                      alt={shoe.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+
+                  <div className="p-4 text-center">
+                    <h2 className="text-base sm:text-lg font-semibold text-gray-800">
+                      {shoe.name}
+                    </h2>
+
+                    <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
+                      <span className="line-through text-gray-400 mr-2">
+                        {shoe.price}
+                      </span>
+                      <span className="text-green-600 font-semibold">
+                        {discountedPrice}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

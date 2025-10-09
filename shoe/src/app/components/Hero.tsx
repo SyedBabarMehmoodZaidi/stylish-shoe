@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -8,6 +9,7 @@ const Hero = () => {
       <section className="w-full flex justify-center py-36 px-4 ">
         <div className="max-w-[1700px] grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left Big Image */}
+          <Link href="/Woman">
           <div className="relative w-full max-w-[837px] h-auto mx-auto overflow-hidden group">
             <Image
               src="/Images/heroshoe1.png"
@@ -25,6 +27,7 @@ const Hero = () => {
               <div className="w-20 h-[2px] bg-black mt-2"></div>
             </div>
           </div>
+          </Link>
 
           {/* Right Side Images */}
           <div className="flex flex-col gap-6">

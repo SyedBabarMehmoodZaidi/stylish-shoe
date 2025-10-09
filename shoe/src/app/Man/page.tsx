@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ManShoesPage() {
   const [columns, setColumns] = useState(4);
@@ -57,7 +58,7 @@ export default function ManShoesPage() {
   {/* Background Image */}
   <Image
     src="/images/man.webp"
-    alt="Men's Collection"
+    alt="Men&apos;s Collection"
     fill
     className="object-cover brightness-75"
     priority
@@ -109,32 +110,34 @@ export default function ManShoesPage() {
           }}
         >
           {shoes.map((shoe) => (
-            <div
-              key={shoe.id}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
-            >
-              <div
-                className={`relative w-full ${
-                  columns === 2 || columns === 1 ? "h-[350px]" : "h-[250px]"
-                } sm:h-[300px] md:h-[350px] lg:h-[400px]`}
-              >
-                <Image
-                  src={shoe.image}
-                  alt={shoe.name}
-                  fill
-                  className="object-contain bg-gray-100"
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
-                  {shoe.name}
-                </h2>
-                <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
-                  {shoe.price}
-                </p>
-              </div>
-            </div>
-          ))}
+  <Link
+    key={shoe.id}
+    href={`/Man/${shoe.id}`}
+    className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+  >
+    <div
+      className={`relative w-full ${
+        columns === 2 || columns === 1 ? "h-[350px]" : "h-[250px]"
+      } sm:h-[300px] md:h-[350px] lg:h-[400px]`}
+    >
+      <Image
+        src={shoe.image}
+        alt={shoe.name}
+        fill
+        className="object-contain bg-gray-100"
+      />
+    </div>
+    <div className="p-4 text-center">
+      <h2 className="text-base sm:text-lg font-semibold text-gray-800">
+        {shoe.name}
+      </h2>
+      <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
+        {shoe.price}
+      </p>
+    </div>
+  </Link>
+))}
+
         </div>
       </div>
     </div>

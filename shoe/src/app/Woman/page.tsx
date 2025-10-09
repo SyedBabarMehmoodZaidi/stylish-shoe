@@ -2,36 +2,37 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function ManShoesPage() {
+export default function WomanShoesPage() {
   const [columns, setColumns] = useState(4);
   const [isMobile, setIsMobile] = useState(false);
   const alignments = [2, 3, 4, 5, 6];
 
   const shoes = [
-    { id: 1, name: "Urban Runner", price: "$89.99", image: "/Images/w1.avif" },
-    { id: 2, name: "Classic Leather", price: "$109.00", image: "/Images/w2.jpg" },
-    { id: 3, name: "Street Vibe", price: "$74.50", image: "/Images/w3.jpg" },
-    { id: 4, name: "Mountain Trek", price: "$129.99", image: "/Images/w4.jpg" },
-    { id: 5, name: "Sport Active", price: "$95.00", image: "/Images/w5.jpg" },
-    { id: 6, name: "Casual Comfort", price: "$68.99", image: "/Images/w6.jpg" },
-    { id: 7, name: "Luxury Brogues", price: "$145.00", image: "/Images/w7.jpg" },
-    { id: 8, name: "Retro Canvas", price: "$59.99", image: "/Images/w8.jpg" },
-    { id: 9, name: "Office Derby", price: "$120.00", image: "/Images/w9.jpg" },
-    { id: 10, name: "Chill Slides", price: "$40.50", image: "/Images/w10.jpg" },
-    { id: 11, name: "Desert Boots", price: "$99.00", image: "/Images/w11.jpg" },
-    { id: 12, name: "Air Flex", price: "$115.00", image: "/Images/w12.jpg" },
-    { id: 13, name: "Bold High-Tops", price: "$89.50", image: "/Images/w13.jpg" },
-    { id: 14, name: "Vintage Kicks", price: "$78.90", image: "/Images/w14.jpg" },
-    { id: 15, name: "Pro Sports", price: "$102.99", image: "/Images/w15.webp" },
-    { id: 16, name: "Formal Lace-Up", price: "$135.00", image: "/Images/w16.jpg" },
-    { id: 17, name: "Slip-On Ease", price: "$85.99", image: "/Images/w17.jpg" },
-    { id: 18, name: "Trail Blazer", price: "$132.00", image: "/Images/w18.jpg" },
-    { id: 19, name: "Running Boost", price: "$98.00", image: "/Images/w19.jpg" },
-    { id: 20, name: "Urban Classic", price: "$122.49", image: "/Images/w20.jpg" },
+    { id: 1, name: "Urban Runner", price: 89.99, image: "/Images/w1.avif" },
+    { id: 2, name: "Classic Leather", price: 109.0, image: "/Images/w2.jpg" },
+    { id: 3, name: "Street Vibe", price: 74.5, image: "/Images/w3.jpg" },
+    { id: 4, name: "Mountain Trek", price: 129.99, image: "/Images/w4.jpg" },
+    { id: 5, name: "Sport Active", price: 95.0, image: "/Images/w5.jpg" },
+    { id: 6, name: "Casual Comfort", price: 68.99, image: "/Images/w6.jpg" },
+    { id: 7, name: "Luxury Brogues", price: 145.0, image: "/Images/w7.jpg" },
+    { id: 8, name: "Retro Canvas", price: 59.99, image: "/Images/w8.jpg" },
+    { id: 9, name: "Office Derby", price: 120.0, image: "/Images/w9.jpg" },
+    { id: 10, name: "Chill Slides", price: 40.5, image: "/Images/w10.jpg" },
+    { id: 11, name: "Desert Boots", price: 99.0, image: "/Images/w11.jpg" },
+    { id: 12, name: "Air Flex", price: 115.0, image: "/Images/w12.jpg" },
+    { id: 13, name: "Bold High-Tops", price: 89.5, image: "/Images/w13.jpg" },
+    { id: 14, name: "Vintage Kicks", price: 78.9, image: "/Images/w14.jpg" },
+    { id: 15, name: "Pro Sports", price: 102.99, image: "/Images/w15.webp" },
+    { id: 16, name: "Formal Lace-Up", price: 135.0, image: "/Images/w16.jpg" },
+    { id: 17, name: "Slip-On Ease", price: 85.99, image: "/Images/w17.jpg" },
+    { id: 18, name: "Trail Blazer", price: 132.0, image: "/Images/w18.jpg" },
+    { id: 19, name: "Running Boost", price: 98.0, image: "/Images/w19.jpg" },
+    { id: 20, name: "Urban Classic", price: 122.49, image: "/Images/w20.jpg" },
   ];
 
-  // 🔹 Handle responsive columns
+  // 🔹 Handle responsiveness
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -47,43 +48,38 @@ export default function ManShoesPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 🔹 Mobile alignments (only 1 or 2)
+  
+
   const mobileAlignments = [1, 2];
 
   return (
     <div className="w-full min-h-screen bg-gray-50">
-      {/* Hero Section */}
-     <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-  {/* Background Image */}
-  <Image
-    src="/images/woman.jpg"
-    alt="Woman Collection"
-    fill
-    className="object-cover"
-    priority
-  />
+      {/* 🌸 Hero Section */}
+      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+        <Image
+          src="/images/woman.jpg"
+          alt="Woman Collection"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">
+            Woman&apos;s Collection
+          </h1>
+          <button
+            onClick={() =>
+              document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition text-sm sm:text-base"
+          >
+            Shop Now
+          </button>
+        </div>
+      </section>
 
-  {/* Overlay (optional dark layer for contrast) */}
-  <div className="absolute inset-0 bg-black/40" />
-
-  {/* Text + Button Content */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">
-      Woman&apos;s Collection
-    </h1>
-    <button
-      onClick={() =>
-        document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })
-      }
-      className="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition text-sm sm:text-base"
-    >
-      Shop Now
-    </button>
-  </div>
-</section>
-
-
-      {/* Layout Controls */}
+      {/* 🔸 Grid Controls (Alignment Buttons) */}
       <div className="flex justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10 flex-wrap px-4">
         {(isMobile ? mobileAlignments : alignments).map((col, index) => (
           <button
@@ -93,7 +89,10 @@ export default function ManShoesPage() {
               columns === col ? "border-black bg-gray-200" : "border-gray-300"
             }`}
           >
-            <div className="flex gap-[2px]" style={{ width: "60px", justifyContent: "center" }}>
+            <div
+              className="flex gap-[2px]"
+              style={{ width: "60px", justifyContent: "center" }}
+            >
               {Array.from({ length: col }).map((_, i) => (
                 <div key={i} className="bg-gray-400 w-[8px] h-[20px] rounded-sm"></div>
               ))}
@@ -102,7 +101,7 @@ export default function ManShoesPage() {
         ))}
       </div>
 
-      {/* Cards Grid */}
+      {/* 👠 Shoes Grid */}
       <div className="flex justify-center mt-8 sm:mt-10 px-4 sm:px-6 md:px-10">
         <div
           id="products"
@@ -112,31 +111,30 @@ export default function ManShoesPage() {
           }}
         >
           {shoes.map((shoe) => (
-            <div
-              key={shoe.id}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
-            >
-              <div
-                className={`relative w-full ${
-                  columns === 2 || columns === 1 ? "h-[350px]" : "h-[250px]"
-                } sm:h-[300px] md:h-[350px] lg:h-[400px]`}
-              >
-                <Image
-                  src={shoe.image}
-                  alt={shoe.name}
-                  fill
-                  className="object-contain bg-gray-100"
-                />
+            <Link key={shoe.id} href={`/Woman/${shoe.id}`}>
+              <div className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <div
+                  className={`relative w-full ${
+                    columns === 2 || columns === 1 ? "h-[350px]" : "h-[250px]"
+                  } sm:h-[300px] md:h-[350px] lg:h-[400px]`}
+                >
+                  <Image
+                    src={shoe.image}
+                    alt={shoe.name}
+                    fill
+                    className="object-contain bg-gray-100"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h2 className="text-base sm:text-lg font-semibold text-gray-800">
+                    {shoe.name}
+                  </h2>
+                  <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
+                    ${shoe.price.toFixed(2)}
+                  </p>
+                </div>
               </div>
-              <div className="p-4 text-center">
-                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
-                  {shoe.name}
-                </h2>
-                <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
-                  {shoe.price}
-                </p>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
