@@ -1,12 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-
-// Swiper CSS import karna zaroori hai
-import "swiper/css";
-import "swiper/css/navigation";
 
 const products = [
   { id: 1, name: "Product 1", price: "$25", img: "/Images/featured1.jpg" },
@@ -27,7 +24,9 @@ const FeaturedProducts = () => {
       {/* Heading with View All button */}
       <div className="w-full max-w-[1400px] flex items-center justify-between mb-10">
         <h2 className="text-3xl font-bold">Featured Products</h2>
-        <button className="text-black underline text-lg">View All</button>
+        <Link href="/Trends" className="text-black underline text-lg">
+          View All
+        </Link>
       </div>
 
       {/* Swiper Slider */}
@@ -48,8 +47,11 @@ const FeaturedProducts = () => {
         >
           {products.map((product) => (
             <SwiperSlide key={product.id}>
-              <div className="flex flex-col items-center text-center border rounded-lg shadow-sm p-4 bg-white">
-                {/* Image wrapper with hover zoom */}
+              {/* ✅ Wrap entire card inside Link */}
+              <Link
+                href="/Trends"
+                className="flex flex-col items-center text-center border rounded-lg shadow-sm p-4 bg-white hover:shadow-md transition"
+              >
                 <div className="w-[263px] h-[263px] relative overflow-hidden rounded-lg group">
                   <Image
                     src={product.img}
@@ -60,7 +62,7 @@ const FeaturedProducts = () => {
                 </div>
                 <h3 className="mt-4 text-lg font-semibold">{product.name}</h3>
                 <p className="text-gray-600">{product.price}</p>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -69,7 +71,10 @@ const FeaturedProducts = () => {
       {/* Two Big Images Section */}
       <div className="w-full flex flex-col md:flex-row justify-center gap-6 max-w-[1500px]">
         {/* Left Image */}
-        <div className="relative w-full md:w-[712px] h-[500px] overflow-hidden rounded-lg group">
+        <Link
+          href="/Trends"
+          className="relative w-full md:w-[712px] h-[500px] overflow-hidden rounded-lg group"
+        >
           <Image
             src="/Images/f1.png"
             alt="Minimal Collection"
@@ -84,10 +89,13 @@ const FeaturedProducts = () => {
               Shop Now
             </button>
           </div>
-        </div>
+        </Link>
 
         {/* Right Image */}
-        <div className="relative w-full md:w-[712px] h-[500px] overflow-hidden rounded-lg group">
+        <Link
+          href="/Trends"
+          className="relative w-full md:w-[712px] h-[500px] overflow-hidden rounded-lg group"
+        >
           <Image
             src="/Images/f2.png"
             alt="Sneakers"
@@ -102,7 +110,7 @@ const FeaturedProducts = () => {
               Shop Now
             </button>
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   );

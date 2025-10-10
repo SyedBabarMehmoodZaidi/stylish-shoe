@@ -8,6 +8,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import React from "react";
+import Link from "next/link";
 
 const products = [
   { id: 1, name: "Product 1", price: "$25", img: "/Images/p1.png" },
@@ -29,7 +30,9 @@ function Product() {
         {/* Heading with View All button */}
         <div className="w-full flex items-center justify-between mb-10">
           <h2 className="text-3xl font-bold">Latest Products</h2>
-          <button className="text-black underline text-lg">View All</button>
+          <Link href="/Sport" className="text-black underline text-lg">
+            View All
+          </Link>
         </div>
 
         {/* Swiper Slider */}
@@ -49,8 +52,11 @@ function Product() {
           >
             {products.map((product) => (
               <SwiperSlide key={product.id}>
-                <div className="flex flex-col items-center text-center border rounded-lg shadow-sm p-4 bg-white">
-                  {/* Image wrapper with hover zoom */}
+                {/* ✅ Wrap whole card inside Link */}
+                <Link
+                  href="/Sport"
+                  className="flex flex-col items-center text-center border rounded-lg shadow-sm p-4 bg-white hover:shadow-md transition"
+                >
                   <div className="w-[263px] h-[263px] relative overflow-hidden rounded-lg group">
                     <Image
                       src={product.img}
@@ -63,7 +69,7 @@ function Product() {
                     {product.name}
                   </h3>
                   <p className="text-gray-600">{product.price}</p>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

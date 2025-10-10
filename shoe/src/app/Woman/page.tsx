@@ -57,7 +57,7 @@ export default function WomanShoesPage() {
       {/* 🌸 Hero Section */}
       <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
         <Image
-          src="/images/woman.jpg"
+          src="/Images/woman.jpg"
           alt="Woman Collection"
           fill
           className="object-cover"

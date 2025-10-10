@@ -10,26 +10,26 @@ export default function ManShoesPage() {
   const alignments = [2, 3, 4, 5, 6];
 
   const shoes = [
-    { id: 1, name: "Urban Runner", price: "$89.99", image: "/images/m1.jpg" },
-    { id: 2, name: "Classic Leather", price: "$109.00", image: "/images/m2.jpg" },
-    { id: 3, name: "Street Vibe", price: "$74.50", image: "/images/m3.jpg" },
-    { id: 4, name: "Mountain Trek", price: "$129.99", image: "/images/m4.jpg" },
-    { id: 5, name: "Sport Active", price: "$95.00", image: "/images/m5.jpg" },
-    { id: 6, name: "Casual Comfort", price: "$68.99", image: "/images/m6.jpg" },
-    { id: 7, name: "Luxury Brogues", price: "$145.00", image: "/images/m7.jpg" },
-    { id: 8, name: "Retro Canvas", price: "$59.99", image: "/images/m8.jpg" },
-    { id: 9, name: "Office Derby", price: "$120.00", image: "/images/m9.jpg" },
-    { id: 10, name: "Chill Slides", price: "$40.50", image: "/images/m10.jpg" },
-    { id: 11, name: "Desert Boots", price: "$99.00", image: "/images/m11.jpg" },
-    { id: 12, name: "Air Flex", price: "$115.00", image: "/images/m12.jpg" },
-    { id: 13, name: "Bold High-Tops", price: "$89.50", image: "/images/m13.jpg" },
-    { id: 14, name: "Vintage Kicks", price: "$78.90", image: "/images/m14.webp" },
-    { id: 15, name: "Pro Sports", price: "$102.99", image: "/images/m15.jpg" },
-    { id: 16, name: "Formal Lace-Up", price: "$135.00", image: "/images/m16.jpg" },
-    { id: 17, name: "Slip-On Ease", price: "$85.99", image: "/images/m17.jpg" },
-    { id: 18, name: "Trail Blazer", price: "$132.00", image: "/images/m18.jpg" },
-    { id: 19, name: "Running Boost", price: "$98.00", image: "/images/m19.jpg" },
-    { id: 20, name: "Urban Classic", price: "$122.49", image: "/images/m20.webp" },
+    { id: 1, name: "Urban Runner", price: "$89.99", image: "/Images/m1.jpg" },
+    { id: 2, name: "Classic Leather", price: "$109.00", image: "/Images/m2.jpg" },
+    { id: 3, name: "Street Vibe", price: "$74.50", image: "/Images/m3.jpg" },
+    { id: 4, name: "Mountain Trek", price: "$129.99", image: "/Images/m4.jpg" },
+    { id: 5, name: "Sport Active", price: "$95.00", image: "/Images/m5.jpg" },
+    { id: 6, name: "Casual Comfort", price: "$68.99", image: "/Images/m6.jpg" },
+    { id: 7, name: "Luxury Brogues", price: "$145.00", image: "/Images/m7.jpg" },
+    { id: 8, name: "Retro Canvas", price: "$59.99", image: "/Images/m8.jpg" },
+    { id: 9, name: "Office Derby", price: "$120.00", image: "/Images/m9.jpg" },
+    { id: 10, name: "Chill Slides", price: "$40.50", image: "/Images/m10.jpg" },
+    { id: 11, name: "Desert Boots", price: "$99.00", image: "/Images/m11.jpg" },
+    { id: 12, name: "Air Flex", price: "$115.00", image: "/Images/m12.jpg" },
+    { id: 13, name: "Bold High-Tops", price: "$89.50", image: "/Images/m13.jpg" },
+    { id: 14, name: "Vintage Kicks", price: "$78.90", image: "/Images/m14.webp" },
+    { id: 15, name: "Pro Sports", price: "$102.99", image: "/Images/m15.jpg" },
+    { id: 16, name: "Formal Lace-Up", price: "$135.00", image: "/Images/m16.jpg" },
+    { id: 17, name: "Slip-On Ease", price: "$85.99", image: "/Images/m17.jpg" },
+    { id: 18, name: "Trail Blazer", price: "$132.00", image: "/Images/m18.jpg" },
+    { id: 19, name: "Running Boost", price: "$98.00", image: "/Images/m19.jpg" },
+    { id: 20, name: "Urban Classic", price: "$122.49", image: "/Images/m20.webp" },
   ];
 
   // 🔹 Handle responsive columns
@@ -57,7 +57,7 @@ export default function ManShoesPage() {
       <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh]">
   {/* Background Image */}
   <Image
-    src="/images/man.webp"
+    src="/Images/man.webp"
     alt="Men&apos;s Collection"
     fill
     className="object-cover brightness-75"

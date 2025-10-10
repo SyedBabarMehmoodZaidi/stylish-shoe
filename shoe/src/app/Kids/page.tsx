@@ -20,14 +20,14 @@ export default function KidShoesPage() {
     { id: 8, name: "Little Hiker", price: "$75.00", image: "/Images/k8.jpg" },
     { id: 9, name: "Star Light", price: "$62.49", image: "/Images/k9.jpg" },
     { id: 10, name: "Sport Champ", price: "$70.00", image: "/Images/k10.jpg" },
-    { id: 11, name: "Desert Boots", price: "$99.00", image: "/images/k11.jpg" }, 
-    { id: 12, name: "Air Flex", price: "$115.00", image: "/images/k12.jpg" }, 
-    { id: 13, name: "Bold High-Tops", price: "$89.50", image: "/images/k13.jpg" }, 
-    { id: 14, name: "Vintage Kicks", price: "$78.90", image: "/images/k14.jpg" },
-    { id: 15, name: "Pro Sports", price: "$102.99", image: "/images/k15.jpg" }, 
-    { id: 16, name: "Formal Lace-Up", price: "$135.00", image: "/images/k16.jpg" }, 
-    { id: 17, name: "Slip-On Ease", price: "$85.99", image: "/images/k17.jpg" }, 
-    { id: 18, name: "Trail Blazer", price: "$132.00", image: "/images/k18.jpg" },
+    { id: 11, name: "Desert Boots", price: "$99.00", image: "/Images/k11.jpg" }, 
+    { id: 12, name: "Air Flex", price: "$115.00", image: "/Images/k12.jpg" }, 
+    { id: 13, name: "Bold High-Tops", price: "$89.50", image: "/Images/k13.jpg" }, 
+    { id: 14, name: "Vintage Kicks", price: "$78.90", image: "/Images/k14.jpg" },
+    { id: 15, name: "Pro Sports", price: "$102.99", image: "/Images/k15.jpg" }, 
+    { id: 16, name: "Formal Lace-Up", price: "$135.00", image: "/Images/k16.jpg" }, 
+    { id: 17, name: "Slip-On Ease", price: "$85.99", image: "/Images/k17.jpg" }, 
+    { id: 18, name: "Trail Blazer", price: "$132.00", image: "/Images/k18.jpg" },
   ];
 
   useEffect(() => {

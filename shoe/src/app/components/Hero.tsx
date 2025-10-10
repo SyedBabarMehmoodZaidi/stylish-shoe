@@ -32,6 +32,7 @@ const Hero = () => {
           {/* Right Side Images */}
           <div className="flex flex-col gap-6">
             {/* Second Image */}
+            <Link href="/Sport">
             <div className="relative w-full max-w-[808px] h-auto mx-auto overflow-hidden group">
               <Image
                 src="/Images/heroshoe2.png"
@@ -49,8 +50,9 @@ const Hero = () => {
                 <div className="w-20 h-[2px] bg-black mt-2"></div>
               </div>
             </div>
-
+             </Link>
             {/* Third Image */}
+            <Link href="/Trends">
             <div className="relative w-full max-w-[808px] h-auto mx-auto overflow-hidden group">
               <Image
                 src="/Images/heroshoe3.png"
@@ -68,6 +70,8 @@ const Hero = () => {
                 <div className="w-20 h-[2px] bg-black mt-2"></div>
               </div>
             </div>
+            </Link>
+
           </div>
         </div>
       </section>

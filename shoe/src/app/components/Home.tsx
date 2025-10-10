@@ -3,6 +3,7 @@ import Header from './Header'
 import Hero from './Hero'
 import Featured from './Featured'
 import Product from './Product'
+import TVCSection from './TVSection'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Featured />
       <Product />
+      <TVCSection />
     </div>
   )
 }

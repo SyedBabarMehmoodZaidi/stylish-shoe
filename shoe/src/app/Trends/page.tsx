@@ -60,7 +60,7 @@ export default function ManShoesPage() {
       {/* 🔸 Hero Section */}
       <section className="relative w-full min-h-[70vh] sm:min-h-[60vh] md:h-[70vh] overflow-hidden flex items-center">
         <Image
-          src="/images/trend1.jpg"
+          src="/Images/trend1.jpg"
           alt="Trend Collection"
           fill
           className="object-cover"
